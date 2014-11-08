@@ -59,12 +59,14 @@
 
 .load_button {
 	text-align: center;
-	background-color: #C3C3C3;
+	background-color: #C7C7C7;
 	color: #FFFFFF;
 	height: 19px;
-	width: 45%;
+	width: 345px;
 	padding-top: 5px;
 	font-size: 11px;
+	margin-top: -10px;
+	margin-left: -1px;
 }
 
 .load_button a {
@@ -77,4 +79,50 @@ ul {
 
 a {
 	text-decoration: none;
+}
+
+#commits li {
+	border-style: solid;
+	border-width: thin;
+	border-color: #CCCCCC;
+	margin-bottom: 5px;
+	margin-left: -41px;
+	width: 345px;
+	height: 40px;
+}
+
+.commit_date {
+	float: right;
+	padding-right: 5px;
+	padding-top: 5px;
+	font-size: 10px;
+	color: #9D9A9A;
+}
+
+.commit_message {
+	float: left;
+	padding-top: 5px;
+	padding-left: 15px;
+	font-size: 14px;
+	color: #8B8989;
+	font-weight: bold;
+}
+
+.commit_author {
+	float: right;
+	clear: both;
+	font-size: 12px;
+	color: #9D9A9A;
+	padding-right: 230px;
+	margin-top: -15px;
+}
+
+.commit_avatar {
+	width: 30px;
+	background-color: #C7C7C7;
+	height: 30px;
+	display: block;
+	margin-left: 5px;
+	margin-top: 5px;
+	float: left;
 }
