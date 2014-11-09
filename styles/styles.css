@@ -1,8 +1,4 @@
-#container {
-	
-}
-
-#sidebar {
+.sidebar {
 	background-color: #7D7DFF;
 	position: absolute;
 	left: 0;
@@ -11,7 +7,7 @@
 	right: 60%;
 }
 
-#main {
+.main {
 	position: absolute; 
 	left: 40%;
 	top: 0;
@@ -19,22 +15,23 @@
 	right: 0;
 }
 
-#content {
+.content {
 	margin-left: 30px;
 }
 
-#sidebar .sidebar_header {
+.sidebar_header {
 	letter-spacing: 0.3em;
 	font-size: 28px;
 }
 
-#sidebar #repos li {
+.repos li {
 	color: #FFFFFF;
 }
 
-#sidebar_content {
+.sidebar_content {
 	margin-top: 15px;
 }
+
 .menu_font_color {
 	color: #FFFFFF;
 	font-family: 'Segoe UI Light', Arial, Sans-Serif;
@@ -46,12 +43,12 @@
 	line-height: 25px;
 }
 
-#general_info {
+.general_info {
 	margin-top: 15px;
 	
 }
 
-#general_info span {
+.general_info span {
 	margin-right: 65px;
 	font-size: 20px;
 	color: #C7C7C7;
@@ -82,15 +79,13 @@ a {
 	cursor: pointer;
 }
 
-#commits {
+.commits {
 	overflow: scroll;
 	height: 600px;
 }
 
-#commits li {
-	border-style: solid;
-	border-width: thin;
-	border-color: #CCCCCC;
+.commits li {
+	border: 1px solid #CCC;
 	margin-bottom: 5px;
 	margin-left: -40px;
 	width: 395px;;
@@ -132,4 +127,12 @@ a {
 	margin-left: 5px;
 	margin-top: 5px;
 	float: left;
+}
+
+.clearfix:after { 
+  content: "."; 
+  visibility: hidden; 
+  display: block; 
+  height: 0; 
+  clear: both;
 }

@@ -8,10 +8,10 @@
 	<body ng-app="myApp">
 		<div id="container" ng-controller="repositoryController">
 
-			<div id="sidebar" class="menu_style">
-				<div id="sidebar_content">
+			<div id="sidebar" class="menu_style sidebar">
+				<div class="sidebar_content">
 					<span class="sidebar_header menu_font_color">projetos</span>
-					<nav id="repos">
+					<nav class="repos">
 						<ul>
 							<li ng-repeat="repository in repositories">
 								<a ng-click="loadRepositoryData(repository)" class="menu_font_color">{{ repository.name }}</a>
@@ -21,15 +21,15 @@
 				</div>
 			</div>
 
-			<div id="main">
-				<div id="content" ng-if="!notLoaded">
-					<div id="general_info">
+			<div id="main" class="main">
+				<div id="content" class="content" ng-if="!notLoaded">
+					<div class="general_info">
 						<span>stars {{stars}}</span>
 						<span>forks {{forks}}</span>
 						<span>contribs {{contribs}}</span>
 					</div>
 
-					<div id="commits">
+					<div class="commits">
 						<ul>
 							<li ng-repeat="detail in commits">
 								<span class="commit_avatar"><img src="{{detail.author.avatar_url}}" width="30" height="30" /></span>
@@ -45,7 +45,7 @@
 					</div>
 				</div>
 			</div>
-
+            
 		</div>
 
 		<script src="scripts/libs/angular.js"></script>
