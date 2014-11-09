@@ -39,7 +39,9 @@ myApp.controller('repositoryController', function repositoryController($scope, g
 	$scope.loadMoreCommits = function () {
 		githubService.getCommits($scope.current_repository.name, COMMIT_PAGE)
 			.then(function (response) {
-				$scope.commits.push(response.data);
+				angular.forEach(response.data, function (value) {
+					$scope.commits.push(value);
+				});
 			});
 
 		COMMIT_PAGE += 1;
