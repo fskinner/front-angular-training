@@ -5,17 +5,17 @@
 		<link href="assets/styles.css" rel="stylesheet" type="text/css">
 	</head>
 
-	<body>
-		<div id="container">
+	<body ng-app="myApp">
+		<div id="container" ng-controller="repositoryController">
 
 			<div id="sidebar" class="menu_style">
 				<div id="sidebar_content">
 					<span class="sidebar_header menu_font_color">projetos</span>
 					<nav id="repos">
 						<ul>
-							<li><a href="#" class="menu_font_color">tsuru</a></li>
-							<li><a href="#" class="menu_font_color">splinter</a></li>
-							<li><a href="#" class="menu_font_color">flask-mongo-api</a></li>
+							<li ng-repeat="repository in repositories">
+								<a ng-click="loadRepositoryData(repository)" class="menu_font_color">{{ repository.name }}</a>
+							</li>
 						</ul>
 					</nav>
 				</div>
@@ -24,33 +24,36 @@
 			<div id="main">
 				<div id="content">
 					<div id="general_info">
-						<span>stars 34</span>
-						<span>forks 13</span>
-						<span>contribs 7</span>
+						<span ng-hide="notLoaded">stars {{stars}}</span>
+						<span ng-hide="notLoaded">forks {{forks}}</span>
+						<span ng-hide="notLoaded">contribs {{contribs}}</span>
 					</div>
 
-					<div id="commits">
+					<div id="commits" ng-hide="notLoaded">
 						<ul>
-							<li>
-								<span class="commit_avatar"></span>
-								<span class="commit_message">Fixes lorem ipsum</span> <span class="commit_date">12/07/2013</span>
-								<span class="commit_author">@loremipsum</span>
-							</li>
-							<li>
-								<span class="commit_avatar"></span>
-								<span class="commit_message">Fixes lorem ipsum</span> <span class="commit_date">12/07/2013</span>
-								<span class="commit_author">@loremipsum</span>
+							<li ng-repeat="detail in commits">
+								<span class="commit_avatar"><img src="{{detail.author.avatar_url}}" width="30" height="30" /></span>
+								<span class="commit_message"> {{detail.commit.message}} </span>
+								<span class="commit_date"> {{detail.commit.author.date | date:'dd/MM/yyyy'}} </span>
+								<span class="commit_author"> @{{detail.author.login}} </span>
 							</li>
 						</ul>
 
 						<div class="load_button">
-							<a href="#" class="menu_font_color">Carregar mais</a>
+							<a ng-click="loadMoreCommits()" class="menu_font_color">Carregar mais</a>
 						</div>
 					</div>
 				</div>
 			</div>
 
 		</div>
-		<script src="assets/javascript.js"></script>
+
+		<script src="assets/libs/angular.js"></script>
+		<script src="assets/libs/angular-sanitize.js"></script>
+		<script src="assets/libs/angular-route.js"></script>
+
+		<script src="assets/app.js"></script>
+		<script src="assets/controllers/repository.js"></script>
+		<script src="assets/services/githubService.js"></script>
 	</body>
 </html>
