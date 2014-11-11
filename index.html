@@ -10,7 +10,7 @@
 
 			<div id="sidebar" class="menu_style sidebar">
 				<div class="sidebar_content">
-					<span class="sidebar_header menu_font_color">projetos</span>
+					<h1 class="sidebar_header menu_font_color">projetos</h1>
 					<nav class="repos">
 						<ul>
 							<li ng-repeat="repository in repositories">
@@ -29,12 +29,12 @@
 						<span>contribs {{contribs}}</span>
 					</div>
 
-					<div class="commits">
+					<div class="commits clearfix">
 						<ul>
 							<li ng-repeat="detail in commits">
-								<span class="commit_avatar"><img src="{{detail.author.avatar_url}}" width="30" height="30" /></span>
-								<span class="commit_message"> {{detail.commit.message}} </span>
 								<span class="commit_date"> {{detail.commit.author.date | date:'dd/MM/yyyy'}} </span>
+                <img src="{{detail.author.avatar_url}}" width="30" height="30" class="commit_avatar"/>
+								<span class="commit_message"> {{detail.commit.message}} </span>
 								<span class="commit_author"> @{{detail.author.login}} </span>
 							</li>
 						</ul>
@@ -45,7 +45,6 @@
 					</div>
 				</div>
 			</div>
-            
 		</div>
 
 		<script src="scripts/libs/angular.js"></script>
