@@ -29,13 +29,15 @@
 						<span>contribs {{contribs}}</span>
 					</div>
 
-					<div class="commits clearfix">
+					<div class="commits">
 						<ul>
 							<li ng-repeat="detail in commits">
 								<span class="commit_date"> {{detail.commit.author.date | date:'dd/MM/yyyy'}} </span>
-                <img src="{{detail.author.avatar_url}}" width="30" height="30" class="commit_avatar"/>
-								<span class="commit_message"> {{detail.commit.message}} </span>
-								<span class="commit_author"> @{{detail.author.login}} </span>
+                				<img src="{{detail.author.avatar_url}}" width="30" height="30" class="commit_avatar"/>
+								<span class="commit_author_details">
+									<span class="commit_message"> {{detail.commit.message}} </span>
+									<span class="commit_author"> @{{detail.author.login}} </span>
+								</span>
 							</li>
 						</ul>
 
