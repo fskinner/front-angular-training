@@ -1,60 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-	<head>
-		<title>ElasticSearch Repositories</title>
-		<link href="styles/styles.css" rel="stylesheet" type="text/css">
-	</head>
+<head>
+  <title>ElasticSearch Repositories</title>
+  <link href="styles/styles.css" rel="stylesheet" type="text/css">
+</head>
 
-	<body ng-app="myApp">
-		<div id="container" ng-controller="repositoryController">
+<body ng-app="myApp">
+  <div id="container" ng-controller="repositoryController as rep">
 
-			<div id="sidebar" class="menu_style sidebar">
-				<div class="sidebar_content">
-					<h1 class="sidebar_header menu_font_color">projetos</h1>
-					<nav class="repos">
-						<ul>
-							<li ng-repeat="repository in repositories">
-								<a ng-click="loadRepositoryData(repository)" class="menu_font_color">{{ repository.name }}</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
+    <section id="sidebar" class="menu_style sidebar">
+      <div class="sidebar_content">
+        <h1 class="sidebar_header menu_font_color">projetos</h1>
+        <nav class="repos">
+          <ul>
+            <li ng-repeat="repository in rep.repositories">
+              <a ng-click="rep.loadRepositoryData(repository)" class="menu_font_color">{{ repository.name }}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
 
-			<div id="main" class="main">
-				<div id="content" class="content" ng-if="!notLoaded">
-					<div class="general_info">
-						<span>stars {{stars}}</span>
-						<span>forks {{forks}}</span>
-						<span>contribs {{contribs}}</span>
-					</div>
+    <section id="main" class="main">
+      <div id="content" class="content" ng-if="!rep.notLoaded">
+        <header class="general_info">
+          <span>stars {{rep.stars}}</span>
+          <span>forks {{rep.forks}}</span>
+          <span>contribs {{rep.contribs}}</span>
+        </header>
 
-					<div class="commits">
-						<ul>
-							<li ng-repeat="detail in commits">
-								<span class="commit_date"> {{detail.commit.author.date | date:'dd/MM/yyyy'}} </span>
-                				<img src="{{detail.author.avatar_url}}" width="30" height="30" class="commit_avatar"/>
-								<span class="commit_author_details">
-									<span class="commit_message"> {{detail.commit.message}} </span>
-									<span class="commit_author"> @{{detail.author.login}} </span>
-								</span>
-							</li>
-						</ul>
+        <section class="commits">
+          <ul>
+            <li ng-repeat="detail in rep.commits">
+              <span class="commit_date"> {{detail.commit.author.date | date:'dd/MM/yyyy'}} </span>
+              <img src="{{detail.author.avatar_url}}" width="30" height="30" class="commit_avatar"/>
+              <span class="commit_author_details">
+                <span class="commit_message"> {{detail.commit.message}} </span>
+                <span class="commit_author"> @{{detail.author.login}} </span>
+              </span>
+            </li>
+          </ul>
 
-						<div class="load_button">
-							<a ng-click="loadMoreCommits()" class="menu_font_color">Carregar mais</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+          <div class="load_button">
+            <a ng-click="rep.loadMoreCommits()" class="menu_font_color">Carregar mais</a>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
 
-		<script src="scripts/libs/angular.js"></script>
-		<script src="scripts/libs/angular-sanitize.js"></script>
-		<script src="scripts/libs/angular-route.js"></script>
+  <script src="scripts/libs/angular.js"></script>
+  <script src="scripts/libs/angular-sanitize.js"></script>
+  <script src="scripts/libs/angular-route.js"></script>
 
-		<script src="scripts/app.js"></script>
-		<script src="scripts/controllers/repository.js"></script>
-		<script src="scripts/services/githubFactory.js"></script>
-	</body>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/repository.ctrl.js"></script>
+  <script src="scripts/services/githubFactory.svc.js"></script>
+</body>
 </html>

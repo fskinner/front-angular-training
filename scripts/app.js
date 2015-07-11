@@ -1,3 +1,5 @@
-'use strict';
+(function (){
+  'use strict';
 
-var myApp = angular.module('myApp', ['ngSanitize']);
+  angular.module('myApp', ['ngSanitize']);
+})();
